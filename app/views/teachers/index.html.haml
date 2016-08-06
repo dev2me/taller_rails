@@ -1,0 +1,27 @@
+%h1 Lista de Profesores
+
+%table
+  %thead
+    %tr
+      %th Nombre
+      %th Apellido Paterno
+      %th Edad
+      %th Materia
+      %th
+      %th
+      %th
+
+  %tbody
+    - @teachers.each do |teacher|
+      %tr
+        %td= teacher.nombre
+        %td= teacher.apat
+        %td= teacher.edad
+        %td= teacher.materia
+        %td= link_to 'Show', teacher
+        %td= link_to 'Edit', edit_teacher_path(teacher)
+        %td= link_to 'Destroy', teacher, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Agregar Profesor', new_teacher_path
